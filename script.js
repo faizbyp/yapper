@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // GET YAPS
   function loadYaps() {
     $.ajax({
       url: "get_yap.php",
@@ -15,4 +16,20 @@ $(document).ready(function () {
     });
   }
   loadYaps();
+
+  // ADD YAP
+  $("#yapForm").on("submit", function (e) {
+    // e.preventDefault();
+    let yapInput = $("#yapInput").val();
+
+    $.ajax({
+      url: "add_yap.php",
+      method: "POST",
+      data: { yap: yapInput },
+      success: function (response) {
+        $("#yapInput").val("");
+        loadYaps();
+      },
+    });
+  });
 });
