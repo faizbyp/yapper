@@ -19,7 +19,7 @@ $(document).ready(function () {
 
   // ADD YAP
   $("#yapForm").on("submit", function (e) {
-    // e.preventDefault();
+    e.preventDefault();
     let yapInput = $("#yapInput").val();
 
     $.ajax({
